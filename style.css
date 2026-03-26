@@ -9,7 +9,6 @@ h1 {
     font-weight: 400;
     font-style: normal;
     text-align: center;
-    margin: 50px 0 50px 0;
 }
 
 h2 {
@@ -21,6 +20,10 @@ h2 {
     font-size:50px;
 }
 
+.letter-title{
+    font-size:25px;
+}
+
 .blob {
     background-color: #ff66c4;
 }
@@ -29,6 +32,7 @@ h2 {
   background-color: #cc007e;
   border: 20px solid #ccade6;
   text-align: center;
+  color:white;
 }
 
 .card-tile {
@@ -43,3 +47,240 @@ h2 {
     text-align: center;
 }
 
+.active {
+    display: flex;
+}
+
+.card-box1 {
+    background: #f1f1f1;
+    border-radius: 20px;
+    padding: 30px;
+    margin-right: 30px;
+    margin-left: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 1100px;
+    width: 200%;
+    max-height: 1500px;
+}
+
+.card-box2 {
+    padding: 30px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    margin-right: 30px;
+    margin-left: 30px;
+    text-align: center;
+    max-width: 1200px;
+    width: 250%;
+    max-height: 1900px;
+}
+
+.choice-btn {
+    font-size: 1.2rem;
+    margin: 10px;
+    padding: 15px 20px;
+    border-radius: 15px;
+}
+
+.hearts {
+    font-size: 1.4rem;
+    color: red;
+}
+
+.result {
+    font-size: 1.5rem;
+    margin-top: 15px;
+}
+
+.backer {
+    background-color: #FFB6B9;
+    border-color: #FFB6B9;
+    text-align: center;
+}
+
+.backer:hover {
+    background-color: #ADD8E6;
+    border-color: #ADD8E6;
+    text-align: center;
+}
+
+/* Ensure inputs WITH the class 'backer' keep the pink background; text becomes white while typing */
+input.backer,
+textarea.backer,
+select.backer {
+    background-color: #FFB6B9 !important;
+    border: 1px solid #FFB6B9 !important;
+    color: #000 !important;
+    padding: .5rem;
+    border-radius: 8px;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+}
+
+input.backer:focus,
+textarea.backer:focus,
+select.backer:focus {
+    background-color: #FFB6B9 !important;
+    color: #000 !important;
+    box-shadow: 0 0 0 3px rgba(255, 182, 185, 0.3) !important;
+    border-color: #FFB6B9 !important;
+}
+
+.choice-btn1 {
+    padding: 0;
+    width: 250px;
+    height: 250px;
+    border-radius: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: 10px;
+    background-color: white;
+}
+
+.choice-btn1 img {
+    width: 200%;
+    height: 200%;
+    transform: translateY(-20px);
+    ;
+}
+
+.choice-btn2 {
+    padding: 0;
+    width: 250px;
+    height: 250px;
+    border-radius: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: 10px;
+    background-color: white;
+}
+
+.choice-btn2 img {
+    display: block;
+    width: 300%;
+    height: 300%;
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    transform: translateX(15px) translateY(-45px);
+}
+
+.choice-btn3 {
+    padding: 0;
+    width: 250px;
+    height: 250px;
+    border-radius: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: 10px;
+}
+
+.choice-btn3 img {
+    width: 160%;
+    height: 150%;
+}
+
+.gingyimg {
+    display: block;
+    width: 70%;
+    height: 70%;
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-align: center;
+}
+
+.col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.camera-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+video,
+img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #333;
+}
+
+canvas {
+    display: none;
+}
+
+button {
+    padding: 8px 14px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#playerPhoto {
+    display: none;
+    animation: popIn 0.3s ease-out;
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.screen {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.screen.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.choice-btn1,
+.choice-btn1:hover,
+.choice-btn1:focus,
+.choice-btn2,
+.choice-btn2:hover,
+.choice-btn2:focus,
+.choice-btn3,
+.choice-btn3:hover,
+.choice-btn3:focus {
+    background-color: white !important;
+}
+
+.choice-btn1:hover,
+.choice-btn2:hover,
+.choice-btn3:hover {
+    box-shadow: 0 0 50px #e3797d;
+}

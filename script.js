@@ -1,138 +1,146 @@
-// let playerPhotoData = null;
-// let playerName = "";
-// let playerLives = 5;
-// let computerLives = 5;
+// let wordBank = [
+//     'collection',
+//     'puzzle',
+//     'musician',
+//     'birthday',
+//     'painting',
+//     'surprise',
+//     'genius',
+//     'restaurant',
+//     'candle',
+//     'actress'
+// ];
 
-// function showScreen(id) {
-//   const current = document.querySelector('.screen.active');
-//   const next = document.getElementById(id);
-
-//   if (current === next) return;
-
-//   if (current) {
-//     current.classList.remove('active');
-//     setTimeout(() => {
-//       next.classList.add('active');
-//     }, 600); // matches CSS transition time
-//   } else {
-//     next.classList.add('active');
-//   }
+// function generateRandomNumber() {
+//     let rndmNum = Math.floor(Math.random() * 7)
+//     return rndmNum
 // }
 
-// function startGame() {
-//     playerName =
-//         document.getElementById('playerNameInput').value || "Player";
-//     document.getElementById('playerName').textContent = playerName;
-//     showScreen('screen-choose');
+// function generateQuote(num) {
+//     document.getElementById('press-quote').textContent = wordBank[num]
 // }
 
-// function goChoose() {
-//     showScreen('screen-choose');
+// function buildPage() {
+//     generateQuote(generateRandomNumber());
 // }
 
+// buildPage()
 
-// function play(playerChoice) {
-//     const gamePhoto = document.getElementById("playerPhotoGame");
-//     if (playerPhotoData && gamePhoto) {
-//         gamePhoto.src = playerPhotoData;
-//         gamePhoto.style.display = "block";
-//     }
+// let text = "${workBank}";
+// let firstChar = text.charAt(0); 
+// let thirdChar = text.charAt(2); 
 
-//     const choices = ['cupcake', 'cake', 'cookie'];
-//     const computerChoice = choices[Math.floor(Math.random() * 3)];
+let playerPhotoData = null;
+let playerName = "";
+let playerLives = 5;
+let computerLives = 5;
 
-//     let resultText = `You chose ${playerChoice}, Gingerbread man chose ${computerChoice}. `;
+function showScreen(id) {
+    const current = document.querySelector('.screen.active');
+    const next = document.getElementById(id);
 
-//     if (playerChoice === computerChoice) {
-//         resultText += "It's a tie!";
-//     } else if (
-//         (playerChoice === 'cupcake' && computerChoice === 'cookie') ||
-//         (playerChoice === 'cake' && computerChoice === 'cupcake') ||
-//         (playerChoice === 'cookie' && computerChoice === 'cake')
-//     ) {
-//         computerLives--;
-//         resultText += `${playerName} wins this round!`;
-//     } else {
-//         playerLives--;
-//         resultText += "Gingerbread man wins this round!";
-//     }
+    if (current === next) return;
 
-//     updateHearts();
-//     document.getElementById('roundResult').textContent = resultText;
-//     showScreen('screen-game');
+    if (current) {
+        current.classList.remove('active');
+        setTimeout(() => {
+            next.classList.add('active');
+        }, 600); // matches CSS transition time
+    } else {
+        next.classList.add('active');
+    }
+}
 
-//     if (playerLives === 0 || computerLives === 0) {
-//         setTimeout(gameOver, 1000);
-//     }
-// }
+function startGame() {
+    playerName =
+        document.getElementById('playerNameInput').value || "Player";
+    document.getElementById('playerName').textContent = playerName;
+    showScreen('screen-choose');
+}
 
+function play(playerChoice) {
+    const gamePhoto = document.getElementById("playerPhotoGame");
+    if (playerPhotoData && gamePhoto) {
+        gamePhoto.src = playerPhotoData;
+        gamePhoto.style.display = "block";
+    }
 
-// function updateHearts() {
-//     document.getElementById('playerHearts').textContent =
-//         "❤️".repeat(playerLives);
-//     document.getElementById('computerHearts').textContent =
-//         "❤️".repeat(computerLives);
-// }
+    const choices = ['cupcake', 'cake', 'cookie'];
+    const computerChoice = choices[Math.floor(Math.random() * 3)];
 
-// function gameOver() {
-//     document.getElementById('gameOverText').textContent =
-//         playerLives > 0
-//             ? `${playerName} Wins!`
-//             : "Gingerbread man Wins";
-//     showScreen('screen-gameover');
-// }
+    let resultText = `You chose ${playerChoice}, Gingerbread man chose ${computerChoice}. `;
 
-// function resetGame() {
-//     playerLives = 5;
-//     computerLives = 5;
-//     updateHearts();
-//     showScreen('screen-name');
-// }
+    if (playerChoice === computerChoice) {
+        resultText += "It's a tie!";
+    } else if (
+        (playerChoice === 'cupcake' && computerChoice === 'cookie') ||
+        (playerChoice === 'cake' && computerChoice === 'cupcake') ||
+        (playerChoice === 'cookie' && computerChoice === 'cake')
+    ) {
+        computerLives--;
+        resultText += `${playerName} wins this round!`;
+    } else {
+        playerLives--;
+        resultText += "Gingerbread man wins this round!";
+    }
+}
 
+function gameOver() {
+    document.getElementById('gameOverText').textContent =
+        playerLives > 0
+            ? `${playerName} Wins!`
+            : "Gingerbread man Wins";
+    showScreen('screen-gameover');
+}
 
-// function setScaledCursor(width, height, hotX, hotY) {
-//     const img = new Image();
-//     img.src = 'whisk.png';
-//     img.onload = () => {
-//         const canvas = document.createElement('canvas');
-//         canvas.width = width;
-//         canvas.height = height;
-//         const ctx = canvas.getContext('2d');
-//         ctx.drawImage(img, 0, 0, width, height);
-//         const dataUrl = canvas.toDataURL('image/png');
-//         document.body.style.cursor =
-//             `url(${dataUrl}) ${hotX} ${hotY}, auto`;
-//     };
-// }
-
-
-// window.addEventListener('load', () => {
-//     setScaledCursor(48, 48, 24, 24);
-
-//     const nameInput =
-//         document.getElementById('playerNameInput');
-//     if (nameInput) {
-//         nameInput.addEventListener('keydown', (e) => {
-//             if (e.key === 'Enter') {
-//                 e.preventDefault();
-//                 startGame();
-//             }
-//         });
-//     }
-// });
+function resetGame() {
+    playerLives = 5;
+    computerLives = 5;
+    updateHearts();
+    showScreen('screen-name');
+}
 
 
-let wordBank = [
-    'collection',
-    'puzzle',
-    'musician',
-    'birthday',
-    'painting',
-    'surprise',
-    'genius',
-    'restaurant',
-    'candle',
-    'actress'
+function setScaledCursor(width, height, hotX, hotY) {
+    const img = new Image();
+    img.src = 'whisk.png';
+    img.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+        const dataUrl = canvas.toDataURL('image/png');
+        document.body.style.cursor =
+            `url(${dataUrl}) ${hotX} ${hotY}, auto`;
+    };
+}
+
+
+window.addEventListener('load', () => {
+    setScaledCursor(48, 48, 24, 24);
+
+    const nameInput =
+        document.getElementById('playerNameInput');
+    if (nameInput) {
+        nameInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                startGame();
+            }
+        });
+    }
+});
+
+
+let quotesArray = [
+    'You win!',
+    'Congrats!',
+    'It is not important to window, it is important to make the other guy lose.',
+    'Now we have a one-game winning streak ',
+    'You are amazing ',
+    'Good Job! ',
+    'Rock Paper Scissors Champion! '
 ];
 
 function generateRandomNumber() {
@@ -141,7 +149,7 @@ function generateRandomNumber() {
 }
 
 function generateQuote(num) {
-    document.getElementById('press-quote').textContent = wordBank[num]
+    document.getElementById('press-quote').textContent = quotesArray[num]
 }
 
 function buildPage() {
@@ -149,7 +157,3 @@ function buildPage() {
 }
 
 buildPage()
-
-let text = "${workBank}";
-let firstChar = text.charAt(0); // Returns "H"
-let thirdChar = text.charAt(2); // Returns "l"
