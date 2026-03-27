@@ -17,22 +17,24 @@ h2 {
     font-style: normal;
     text-align: center;
     margin: 50px 0 50px 0;
-    font-size:50px;
+    font-size: 50px;
 }
 
-.letter-title{
-    font-size:25px;
+.letter-title {
+    font-size: 25px;
 }
 
 .blob {
     background-color: #ff66c4;
+    max-height:100px;
+    max-width:350px;
 }
 
 .blob:hover {
-  background-color: #cc007e;
-  border: 20px solid #ccade6;
-  text-align: center;
-  color:white;
+    background-color: #cc007e;
+    border: 20px solid #ccade6;
+    text-align: center;
+    color: white;
 }
 
 .card-tile {
